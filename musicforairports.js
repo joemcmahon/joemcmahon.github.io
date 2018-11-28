@@ -201,7 +201,7 @@ function airport(config) {
 
     canvas.addEventListener('click', function () {
       if (playingSince) {
-        gainNode.gain.value = 0;
+        gainNode.gain.exponentialRampToValueAtTime(0.0001, audioContext.currentTime + 0.03);
         convolver.disconnect();
         runningLoops.forEach(function (l) {
           return clearInterval(l);
